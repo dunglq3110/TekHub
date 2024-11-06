@@ -2,7 +2,7 @@
 using System.Data;
 using System.Windows;
 
-namespace LaserTag.Host
+namespace TekHub.Host
 {
     /// <summary>
     /// Interaction logic for App.xaml

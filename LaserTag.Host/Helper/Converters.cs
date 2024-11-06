@@ -6,10 +6,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Data;
 using System.Windows;
-using LaserTag.Host.Models;
+using TekHub.Host.Models;
 using System.Windows.Media;
 
-namespace LaserTag.Host.Helper
+namespace TekHub.Host.Helper
 {
     public class HitTypeToBackgroundConverter : IValueConverter
     {

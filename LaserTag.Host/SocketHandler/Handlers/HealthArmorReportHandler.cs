@@ -1,9 +1,9 @@
-﻿using LaserTag.Host.Dtos;
-using LaserTag.Host.Extensions;
-using LaserTag.Host.Frame;
-using LaserTag.Host.Helper;
-using LaserTag.Host.Logic;
-using LaserTag.Host.Models;
+﻿using TekHub.Host.Dtos;
+using TekHub.Host.Extensions;
+using TekHub.Host.Frame;
+using TekHub.Host.Helper;
+using TekHub.Host.Logic;
+using TekHub.Host.Models;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -12,7 +12,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace LaserTag.Host.SocketHandler.Handlers
+namespace TekHub.Host.SocketHandler.Handlers
 {
     public class HealthArmorReportHandler : MessageHandlerBase<string>
     {

@@ -1,7 +1,7 @@
 using CommunityToolkit.Mvvm.ComponentModel;
-using LaserTag.Host.Dtos;
-using LaserTag.Host.Frame;
-using LaserTag.Host.Models;
+using TekHub.Host.Dtos;
+using TekHub.Host.Frame;
+using TekHub.Host.Models;
 using Newtonsoft.Json;
 using System.Collections.ObjectModel;
 using System.Net;
@@ -9,7 +9,7 @@ using System.Net.Sockets;
 using System.Windows;
 using WebSocketSharp.Server;
 
-namespace LaserTag.Host.Logic
+namespace TekHub.Host.Logic
 {
     public partial class GameManager : ObservableObject
     {
@@ -54,7 +54,7 @@ namespace LaserTag.Host.Logic
                 {
                     IpAddress = GetLocalIPv4();
                     _wssv = new WebSocketServer($"ws://{IpAddress}:8080");
-                    _wssv.AddWebSocketService<PlayerClientSession>("/LaserTag");
+                    _wssv.AddWebSocketService<PlayerClientSession>("/TekHub");
                     _wssv.Start();
                 }
                 else

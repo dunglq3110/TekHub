@@ -1,10 +1,10 @@
-﻿using LaserTag.Host.Logic;
-using LaserTag.Host.Views;
+﻿using TekHub.Host.Logic;
+using TekHub.Host.Views;
 using System.Windows;
 using System.Windows.Input;
 using System.Windows.Media;
 
-namespace LaserTag.Host
+namespace TekHub.Host
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml

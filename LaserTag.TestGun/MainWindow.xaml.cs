@@ -9,7 +9,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace LaserTag.TestGun
+namespace TekHub.TestGun
 {
     public partial class MainWindow : Window
     {

@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LaserTag.Host.Models
+namespace TekHub.Host.Models
 {
     public partial class Match : ObservableObject
     {

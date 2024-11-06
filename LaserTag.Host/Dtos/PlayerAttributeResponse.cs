@@ -7,7 +7,7 @@ using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LaserTag.Host.Dtos
+namespace TekHub.Host.Dtos
 {
     public class PlayerAttributesResponse
     {

@@ -1,7 +1,7 @@
-﻿using LaserTag.Host.Dtos;
-using LaserTag.Host.Extensions;
-using LaserTag.Host.Frame;
-using LaserTag.Host.Models;
+﻿using TekHub.Host.Dtos;
+using TekHub.Host.Extensions;
+using TekHub.Host.Frame;
+using TekHub.Host.Models;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -11,9 +11,9 @@ using System.Threading.Tasks;
 using WebSocketSharp;
 using WebSocketSharp.Server;
 using System.Windows;
-using LaserTag.Host.Helper;
-using LaserTag.Host.SocketHandler;
-namespace LaserTag.Host.Logic
+using TekHub.Host.Helper;
+using TekHub.Host.SocketHandler;
+namespace TekHub.Host.Logic
 {
     public class PlayerClientSession : WebSocketBehavior
     {

@@ -1,7 +1,7 @@
-﻿using LaserTag.Host.Dtos;
-using LaserTag.Host.Frame;
-using LaserTag.Host.Logic;
-using LaserTag.Host.Models;
+﻿using TekHub.Host.Dtos;
+using TekHub.Host.Frame;
+using TekHub.Host.Logic;
+using TekHub.Host.Models;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -9,7 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LaserTag.Host.SocketHandler.Handlers
+namespace TekHub.Host.SocketHandler.Handlers
 {
     public class PlayerBuyUpgradeHandler : MessageHandlerBase<List<int>>
     {

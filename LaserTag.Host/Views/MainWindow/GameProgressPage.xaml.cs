@@ -1,4 +1,4 @@
-﻿using LaserTag.Host.Logic;
+﻿using TekHub.Host.Logic;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,7 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace LaserTag.Host.Views
+namespace TekHub.Host.Views
 {
     /// <summary>
     /// Interaction logic for GameProgressPage.xaml

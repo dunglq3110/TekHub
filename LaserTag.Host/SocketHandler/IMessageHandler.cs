@@ -1,11 +1,11 @@
-﻿using LaserTag.Host.Logic;
+﻿using TekHub.Host.Logic;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LaserTag.Host.SocketHandler
+namespace TekHub.Host.SocketHandler
 {
     public interface IMessageHandler<T>
     {

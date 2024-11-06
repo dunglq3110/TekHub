@@ -5,7 +5,7 @@ using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LaserTag.Host.Models
+namespace TekHub.Host.Models
 {
     public class SharedBase
     {

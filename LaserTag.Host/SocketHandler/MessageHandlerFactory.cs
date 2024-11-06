@@ -1,13 +1,13 @@
-﻿using LaserTag.Host.Frame;
-using LaserTag.Host.Logic;
-using LaserTag.Host.SocketHandler.Handlers;
+﻿using TekHub.Host.Frame;
+using TekHub.Host.Logic;
+using TekHub.Host.SocketHandler.Handlers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LaserTag.Host.SocketHandler
+namespace TekHub.Host.SocketHandler
 {
     public class MessageHandlerFactory
     {

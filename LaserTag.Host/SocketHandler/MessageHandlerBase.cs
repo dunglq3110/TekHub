@@ -1,5 +1,5 @@
-﻿using LaserTag.Host.Frame;
-using LaserTag.Host.Logic;
+﻿using TekHub.Host.Frame;
+using TekHub.Host.Logic;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LaserTag.Host.SocketHandler
+namespace TekHub.Host.SocketHandler
 {
     public abstract class MessageHandlerBase<T> : IMessageHandler<T>
     {

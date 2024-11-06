@@ -2,7 +2,7 @@
 using System.Data;
 using System.Windows;
 
-namespace LaserTag.TestGun
+namespace TekHub.TestGun
 {
     /// <summary>
     /// Interaction logic for App.xaml

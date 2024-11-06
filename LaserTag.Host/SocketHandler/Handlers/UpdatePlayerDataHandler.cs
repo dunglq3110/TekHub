@@ -1,13 +1,13 @@
-﻿using LaserTag.Host.Dtos;
-using LaserTag.Host.Frame;
-using LaserTag.Host.Logic;
+﻿using TekHub.Host.Dtos;
+using TekHub.Host.Frame;
+using TekHub.Host.Logic;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LaserTag.Host.SocketHandler.Handlers
+namespace TekHub.Host.SocketHandler.Handlers
 {
     public class UpdatePlayerDataHandler : MessageHandlerBase<UpdatePlayerRequest>
     {

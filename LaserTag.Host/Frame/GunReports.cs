@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LaserTag.Host.Frame
+namespace TekHub.Host.Frame
 {
     public interface IGunReport
     {

@@ -1,6 +1,6 @@
-﻿using LaserTag.Host.Logic;
-using LaserTag.Host.Models;
-using LaserTag.Host.Views.PlayerDetail;
+﻿using TekHub.Host.Logic;
+using TekHub.Host.Models;
+using TekHub.Host.Views.PlayerDetail;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -18,7 +18,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace LaserTag.Host.Views
+namespace TekHub.Host.Views
 {
     /// <summary>
     /// Interaction logic for MatchPage.xaml

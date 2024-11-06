@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.11.35222.181
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LaserTag.Host", "LaserTag.Host\LaserTag.Host.csproj", "{41EB9ADE-D2D2-41D7-A508-86A9430BAC69}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TekHub.Host", "LaserTag.Host\TekHub.Host.csproj", "{41EB9ADE-D2D2-41D7-A508-86A9430BAC69}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LaserTag.TestGun", "LaserTag.TestGun\LaserTag.TestGun.csproj", "{0A9B282F-AF73-46C2-ADD7-2A77F1078722}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TekHub.TestGun", "LaserTag.TestGun\TekHub.TestGun.csproj", "{0A9B282F-AF73-46C2-ADD7-2A77F1078722}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

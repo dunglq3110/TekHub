@@ -1,10 +1,10 @@
-﻿<UserControl x:Class="LaserTag.Host.Views.PlayerDetail.AttributesTabControl"
+﻿<UserControl x:Class="TekHub.Host.Views.PlayerDetail.AttributesTabControl"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:LaserTag.Host.Views.PlayerDetail" 
-             xmlns:models="clr-namespace:LaserTag.Host.Models" 
+             xmlns:local="clr-namespace:TekHub.Host.Views.PlayerDetail" 
+             xmlns:models="clr-namespace:TekHub.Host.Models" 
              d:DataContext="{d:DesignInstance Type=models:Player}"
              mc:Ignorable="d">
     <ScrollViewer>

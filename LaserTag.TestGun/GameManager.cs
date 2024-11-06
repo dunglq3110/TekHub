@@ -12,7 +12,7 @@ using WebSocketSharp;
 using Newtonsoft.Json;
 using Microsoft.VisualBasic;
 
-namespace LaserTag.TestGun
+namespace TekHub.TestGun
 {
     public partial class GameManager : ObservableObject
     {

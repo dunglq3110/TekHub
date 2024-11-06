@@ -1,8 +1,8 @@
-﻿<Application x:Class="LaserTag.Host.App"
+﻿<Application x:Class="TekHub.Host.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:LaserTag.Host"
-             xmlns:helper="clr-namespace:LaserTag.Host.Helper"
+             xmlns:local="clr-namespace:TekHub.Host"
+             xmlns:helper="clr-namespace:TekHub.Host.Helper"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
         
