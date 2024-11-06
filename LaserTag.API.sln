@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35222.181
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LaserTag.Host", "LaserTag.Host\LaserTag.Host.csproj", "{41EB9ADE-D2D2-41D7-A508-86A9430BAC69}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LaserTag.TestGun", "LaserTag.TestGun\LaserTag.TestGun.csproj", "{0A9B282F-AF73-46C2-ADD7-2A77F1078722}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{41EB9ADE-D2D2-41D7-A508-86A9430BAC69}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{41EB9ADE-D2D2-41D7-A508-86A9430BAC69}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{41EB9ADE-D2D2-41D7-A508-86A9430BAC69}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{41EB9ADE-D2D2-41D7-A508-86A9430BAC69}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0A9B282F-AF73-46C2-ADD7-2A77F1078722}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0A9B282F-AF73-46C2-ADD7-2A77F1078722}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0A9B282F-AF73-46C2-ADD7-2A77F1078722}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0A9B282F-AF73-46C2-ADD7-2A77F1078722}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {13E28E63-6413-4B92-AAB7-B25F5A85803A}
+	EndGlobalSection
+EndGlobal

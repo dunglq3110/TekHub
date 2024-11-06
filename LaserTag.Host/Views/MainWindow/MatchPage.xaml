@@ -1,0 +1,394 @@
+<Page x:Class="LaserTag.Host.Views.MatchPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:LaserTag.Host.Views" 
+      xmlns:logic="clr-namespace:LaserTag.Host.Logic" 
+      d:DataContext="{d:DesignInstance Type=logic:GameManager}"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="MatchPage">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Team 1 Panel -->
+        <DockPanel Grid.Column="0">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <!-- Team 1 Header -->
+                <Border Grid.Row="0"  Style="{StaticResource TeamHeaderStyle}" Tag="Team1"
+                        Background="{StaticResource Team1Background}">
+                    <TextBlock Text="{Binding TeamWins[0], StringFormat='Team 1 Wins: {0}'}"
+                               Style="{StaticResource TeamHeaderTextStyle}"
+                               Foreground="{StaticResource TextPrimaryColor}"/>
+                </Border>
+
+                <!-- Team 1 Players -->
+                <Border Grid.Row="1" 
+                        Style="{StaticResource TeamListStyle}" Tag="Team1"
+                        Background="{StaticResource Team1Background}">
+                    <ListView ItemsSource="{Binding Team1Players}"
+                             Style="{StaticResource TeamListViewStyle}">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <Border Style="{StaticResource PlayerBorderStyle}"
+                                            Background="{StaticResource Team1PlayerBackground}"
+                                            BorderBrush="{StaticResource TextPrimaryColor}">
+                                    <Border.ContextMenu>
+                                        <ContextMenu>
+                                            <MenuItem Header="Details" Click="PlayerDetails_Click"/>
+                                            <MenuItem Header="Move to team">
+                                                <MenuItem Header="Team 2" Click="MoveToTeam2_Click"/>
+                                                <MenuItem Header="Team 3" Click="MoveToTeam3_Click"/>
+                                                <MenuItem Header="Team 4" Click="MoveToTeam4_Click"/>
+                                            </MenuItem>
+                                        </ContextMenu>
+                                    </Border.ContextMenu>
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="Auto"/>
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+
+                                        <TextBlock Text="{Binding Name}" 
+                                                       FontWeight="UltraBold" 
+                                                       FontSize="15" 
+                                                       Grid.ColumnSpan="2"
+                                                       Margin="0,0,0,5"
+                                                       Foreground="#DFD0B8"
+                                                       Style="{StaticResource PlayerTextBlockStyle}"/>
+
+                                        <StackPanel Grid.Row="1" Grid.Column="0">
+                                            <TextBlock Style="{StaticResource PlayerTextBlockStyle}">
+                                                    <Run Text="Health: " FontWeight="SemiBold" Foreground="#DFD0B8"/>
+                                                    <Run Text="{Binding CurrentHealth}" Foreground="#DFD0B8"/>
+                                            </TextBlock>
+                                            <TextBlock Style="{StaticResource PlayerTextBlockStyle}">
+                                                    <Run Text="Armor: " FontWeight="SemiBold" Foreground="#DFD0B8"/>
+                                                    <Run Text="{Binding CurrentArmor}" Foreground="#DFD0B8"/>
+                                            </TextBlock>
+                                        </StackPanel>
+
+                                        <StackPanel Grid.Row="1" Grid.Column="2" Margin="10,0,0,0">
+                                            <TextBlock Style="{StaticResource PlayerTextBlockStyle}">
+                                                    <Run Text="Bullets: " FontWeight="SemiBold" Foreground="#DFD0B8"/>
+                                                    <Run Text="{Binding CurrentBullet}" Foreground="#DFD0B8"/>
+                                            </TextBlock>
+                                            <TextBlock Style="{StaticResource PlayerTextBlockStyle}">
+                                                    <Run Text="SSketch: " FontWeight="SemiBold" Foreground="#DFD0B8"/>
+                                                    <Run Text="{Binding CurrentSSketchBullet}" Foreground="#DFD0B8"/>
+                                            </TextBlock>
+                                        </StackPanel>
+
+                                        <Border Grid.Row="2" Grid.ColumnSpan="4" 
+                                                    Background="#DFD0B8" 
+                                                    Height="1" 
+                                                    Margin="0,5,0,0"/>
+                                    </Grid>
+                                </Border>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </Border>
+            </Grid>
+        </DockPanel>
+
+        <!-- Team 2 Panel -->
+        <DockPanel Grid.Column="1">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <!-- Team 2 Header -->
+                <Border Grid.Row="0"  Style="{StaticResource TeamHeaderStyle}" Tag="Team2"
+                        Background="{StaticResource Team2Background}">
+                    <TextBlock Text="{Binding TeamWins[1], StringFormat='Team 2 Wins: {0}'}"
+                       Style="{StaticResource TeamHeaderTextStyle}"
+                       Foreground="{StaticResource TextPrimaryColor}"/>
+                </Border>
+
+                <!-- Team 2 Players -->
+                <Border Grid.Row="1" 
+                        Style="{StaticResource TeamListStyle}" Tag="Team2"
+                        Background="{StaticResource Team2Background}">
+                    <ListView ItemsSource="{Binding Team2Players}"
+                              Style="{StaticResource TeamListViewStyle}">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <Border Style="{StaticResource PlayerBorderStyle}"
+                                    Background="{StaticResource Team2PlayerBackground}"
+                                    BorderBrush="{StaticResource TextPrimaryColor}">
+                                    <Border.ContextMenu>
+                                        <ContextMenu>
+                                            <MenuItem Header="Details" Click="PlayerDetails_Click"/>
+                                            <MenuItem Header="Move to team">
+                                                <MenuItem Header="Team 1" Click="MoveToTeam1_Click"/>
+                                                <MenuItem Header="Team 3" Click="MoveToTeam3_Click"/>
+                                                <MenuItem Header="Team 4" Click="MoveToTeam4_Click"/>
+                                            </MenuItem>
+                                        </ContextMenu>
+                                    </Border.ContextMenu>
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="Auto"/>
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+
+                                        <TextBlock Text="{Binding Name}" 
+                                               FontWeight="UltraBold" 
+                                               FontSize="15" 
+                                               Grid.ColumnSpan="2"
+                                               Margin="0,0,0,5"
+                                               Foreground="#DFD0B8"
+                                               Style="{StaticResource PlayerTextBlockStyle}"/>
+
+                                        <StackPanel Grid.Row="1" Grid.Column="0">
+                                            <TextBlock Style="{StaticResource PlayerTextBlockStyle}">
+                                            <Run Text="Health: " FontWeight="SemiBold" Foreground="#DFD0B8"/>
+                                            <Run Text="{Binding CurrentHealth}" Foreground="#DFD0B8"/>
+                                            </TextBlock>
+                                            <TextBlock Style="{StaticResource PlayerTextBlockStyle}">
+                                            <Run Text="Armor: " FontWeight="SemiBold" Foreground="#DFD0B8"/>
+                                            <Run Text="{Binding CurrentArmor}" Foreground="#DFD0B8"/>
+                                            </TextBlock>
+                                        </StackPanel>
+
+                                        <StackPanel Grid.Row="1" Grid.Column="2" Margin="10,0,0,0">
+                                            <TextBlock Style="{StaticResource PlayerTextBlockStyle}">
+                                            <Run Text="Bullets: " FontWeight="SemiBold" Foreground="#DFD0B8"/>
+                                            <Run Text="{Binding CurrentBullet}" Foreground="#DFD0B8"/>
+                                            </TextBlock>
+                                            <TextBlock Style="{StaticResource PlayerTextBlockStyle}">
+                                            <Run Text="SSketch: " FontWeight="SemiBold" Foreground="#DFD0B8"/>
+                                            <Run Text="{Binding CurrentSSketchBullet}" Foreground="#DFD0B8"/>
+                                            </TextBlock>
+                                        </StackPanel>
+
+                                        <Border Grid.Row="2" Grid.ColumnSpan="4" 
+                                            Background="#DFD0B8" 
+                                            Height="1" 
+                                            Margin="0,5,0,0"/>
+                                    </Grid>
+                                </Border>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </Border>
+            </Grid>
+        </DockPanel>
+
+
+        <!-- Team 3 Panel -->
+        <DockPanel Grid.Column="2">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <!-- Team 3 Header -->
+                <Border Grid.Row="0"  Style="{StaticResource TeamHeaderStyle}" Tag="Team3"
+                        Background="{StaticResource Team3Background}">
+                    <TextBlock Text="{Binding TeamWins[1], StringFormat='Team 3 Wins: {0}'}"
+                       Style="{StaticResource TeamHeaderTextStyle}"
+                       Foreground="{StaticResource TextPrimaryColor}"/>
+                </Border>
+
+                <!-- Team 3 Players -->
+                <Border Grid.Row="1" 
+                        Style="{StaticResource TeamListStyle}" Tag="Team3"
+                        Background="{StaticResource Team3Background}">
+                    <ListView ItemsSource="{Binding Team3Players}"
+                              Style="{StaticResource TeamListViewStyle}">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <Border Style="{StaticResource PlayerBorderStyle}"
+                                    Background="{StaticResource Team3PlayerBackground}"
+                                    BorderBrush="{StaticResource TextPrimaryColor}">
+                                    <Border.ContextMenu>
+                                        <ContextMenu>
+                                            <MenuItem Header="Details" Click="PlayerDetails_Click"/>
+                                            <MenuItem Header="Move to team">
+                                                <MenuItem Header="Team 1" Click="MoveToTeam1_Click"/>
+                                                <MenuItem Header="Team 2" Click="MoveToTeam2_Click"/>
+                                                <MenuItem Header="Team 4" Click="MoveToTeam4_Click"/>
+                                            </MenuItem>
+                                        </ContextMenu>
+                                    </Border.ContextMenu>
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="Auto"/>
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+
+                                        <TextBlock Text="{Binding Name}" 
+                                               FontWeight="UltraBold" 
+                                               FontSize="15" 
+                                               Grid.ColumnSpan="2"
+                                               Margin="0,0,0,5"
+                                               Foreground="#DFD0B8"
+                                               Style="{StaticResource PlayerTextBlockStyle}"/>
+
+                                        <StackPanel Grid.Row="1" Grid.Column="0">
+                                            <TextBlock Style="{StaticResource PlayerTextBlockStyle}">
+                                            <Run Text="Health: " FontWeight="SemiBold" Foreground="#DFD0B8"/>
+                                            <Run Text="{Binding CurrentHealth}" Foreground="#DFD0B8"/>
+                                            </TextBlock>
+                                            <TextBlock Style="{StaticResource PlayerTextBlockStyle}">
+                                            <Run Text="Armor: " FontWeight="SemiBold" Foreground="#DFD0B8"/>
+                                            <Run Text="{Binding CurrentArmor}" Foreground="#DFD0B8"/>
+                                            </TextBlock>
+                                        </StackPanel>
+
+                                        <StackPanel Grid.Row="1" Grid.Column="2" Margin="10,0,0,0">
+                                            <TextBlock Style="{StaticResource PlayerTextBlockStyle}">
+                                            <Run Text="Bullets: " FontWeight="SemiBold" Foreground="#DFD0B8"/>
+                                            <Run Text="{Binding CurrentBullet}" Foreground="#DFD0B8"/>
+                                            </TextBlock>
+                                            <TextBlock Style="{StaticResource PlayerTextBlockStyle}">
+                                            <Run Text="SSketch: " FontWeight="SemiBold" Foreground="#DFD0B8"/>
+                                            <Run Text="{Binding CurrentSSketchBullet}" Foreground="#DFD0B8"/>
+                                            </TextBlock>
+                                        </StackPanel>
+
+                                        <Border Grid.Row="2" Grid.ColumnSpan="4" 
+                                            Background="#DFD0B8" 
+                                            Height="1" 
+                                            Margin="0,5,0,0"/>
+                                    </Grid>
+                                </Border>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </Border>
+            </Grid>
+        </DockPanel>
+
+        <!-- Team 4 Panel -->
+        <DockPanel Grid.Column="3">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <!-- Team 4 Header -->
+                <Border Grid.Row="0"  Style="{StaticResource TeamHeaderStyle}" Tag="Team4"
+                        Background="{StaticResource Team4Background}">
+                    <TextBlock Text="{Binding TeamWins[3], StringFormat='Team 4 Wins: {0}'}"
+                               Style="{StaticResource TeamHeaderTextStyle}"
+                               Foreground="Black"/>
+                </Border>
+
+                <!-- Team 4 Players -->
+                <Border Grid.Row="1" 
+                        Style="{StaticResource TeamListStyle}" Tag="Team4"
+                        Background="{StaticResource Team4Background}">
+                    <ListView ItemsSource="{Binding Team4Players}"
+                              Style="{StaticResource TeamListViewStyle}">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <Border Style="{StaticResource PlayerBorderStyle}"
+                                        Background="{StaticResource Team4PlayerBackground}"
+                                        BorderBrush="#D49B54">
+                                    <Border.ContextMenu>
+                                        <ContextMenu>
+                                            <MenuItem Header="Details" Click="PlayerDetails_Click"/>
+                                            <MenuItem Header="Move to team">
+                                                <MenuItem Header="Team 1" Click="MoveToTeam1_Click"/>
+                                                <MenuItem Header="Team 2" Click="MoveToTeam2_Click"/>
+                                                <MenuItem Header="Team 3" Click="MoveToTeam3_Click"/>
+                                            </MenuItem>
+                                        </ContextMenu>
+                                    </Border.ContextMenu>
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="Auto"/>
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+
+                                        <TextBlock Text="{Binding Name}" 
+                                                   FontWeight="UltraBold" 
+                                                   FontSize="15" 
+                                                   Grid.ColumnSpan="2"
+                                                   Margin="0,0,0,5"
+                                                   Foreground="#000"
+                                                   Style="{StaticResource PlayerTextBlockStyle}"/>
+
+                                        <StackPanel Grid.Row="1" Grid.Column="0">
+                                            <TextBlock Style="{StaticResource PlayerTextBlockStyle}">
+                                                <Run Text="Health: " FontWeight="SemiBold" Foreground="#000"/>
+                                                <Run Text="{Binding CurrentHealth}" Foreground="#000"/>
+                                            </TextBlock>
+                                            <TextBlock Style="{StaticResource PlayerTextBlockStyle}">
+                                                <Run Text="Armor: " FontWeight="SemiBold" Foreground="#000"/>
+                                                <Run Text="{Binding CurrentArmor}" Foreground="#000"/>
+                                            </TextBlock>
+                                        </StackPanel>
+
+                                        <StackPanel Grid.Row="1" Grid.Column="2" Margin="10,0,0,0">
+                                            <TextBlock Style="{StaticResource PlayerTextBlockStyle}">
+                                                <Run Text="Bullets: " FontWeight="SemiBold" Foreground="#000"/>
+                                                <Run Text="{Binding CurrentBullet}" Foreground="#000"/>
+                                            </TextBlock>
+                                            <TextBlock Style="{StaticResource PlayerTextBlockStyle}">
+                                                <Run Text="SSketch: " FontWeight="SemiBold" Foreground="#000"/>
+                                                <Run Text="{Binding CurrentSSketchBullet}" Foreground="#000"/>
+                                            </TextBlock>
+                                        </StackPanel>
+
+                                        <Border Grid.Row="2" Grid.ColumnSpan="4" 
+                                                Background="#000" 
+                                                Height="1" 
+                                                Margin="0,5,0,0"/>
+                                    </Grid>
+                                </Border>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </Border>
+            </Grid>
+        </DockPanel>
+    </Grid>
+</Page>

@@ -1,0 +1,203 @@
+﻿<Window x:Class="LaserTag.Host.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LaserTag.Host" 
+        xmlns:logic="clr-namespace:LaserTag.Host.Logic" 
+        d:DataContext="{d:DesignInstance Type=logic:GameManager}"
+        mc:Ignorable="d"
+        Title="MainWindow"
+        Height="600" 
+        Width="800" 
+        Background="#FF333333"
+        KeyDown="MainWindow_KeyDown">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="4*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Border Grid.RowSpan="2" Grid.ColumnSpan="2" CornerRadius="5" Background="#001F3F" Margin="10">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="7*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <!-- Top Tab Buttons -->
+                <Border Grid.Row="0" Grid.Column="0" CornerRadius="2" Padding="15, 10, 15, 10" Margin="5" BorderBrush="#EAD8B1" BorderThickness="3" Background="#394867">
+                    <StackPanel Orientation="Horizontal">
+                        <Button x:Name="MatchButton" Content="Match" Click="MatchButton_Click" Style="{StaticResource GlobalCurvedButtonStyle}"/>
+                        <Button x:Name="GameProgressButton" Content="Game Progress" Click="GameProgressButton_Click" Style="{StaticResource GlobalCurvedButtonStyle}"/>
+                    </StackPanel>
+                </Border>
+
+                <!-- Main content area -->
+                <Border Grid.Row="1" Grid.RowSpan="3" Grid.Column="0" CornerRadius="3" Margin="5" BorderBrush="#EAD8B1" BorderThickness="3" Background="#394867">
+                    <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden" Background="Transparent"/>
+                    <Border.Effect>
+                        <DropShadowEffect BlurRadius="0" Opacity="0.5" ShadowDepth="2"/>
+                    </Border.Effect>
+                </Border>
+
+                <!-- IP side region -->
+                <Border Grid.Row="0" Grid.Column="1" CornerRadius="3" Margin="5" BorderBrush="#EAD8B1" BorderThickness="3" Background="#394867">
+                    <TextBlock 
+                        Text="Setting Btn Here"
+                        HorizontalAlignment="Center" 
+                        VerticalAlignment="Center"
+                        FontWeight="Bold" 
+                        FontSize="20" 
+                        FontFamily="Arial"
+                        Margin="0,5,0,5"
+                        Foreground="#EAD8B1"/>
+                </Border>
+
+                <!-- IP side region -->
+                <Border Grid.Row="1" Grid.Column="1" CornerRadius="3" Margin="5" BorderBrush="#EAD8B1" BorderThickness="3" Background="#394867">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+
+                        <Border Grid.Row="0" Margin="15, 15, 15, 10" CornerRadius="0" Background="White" BorderThickness="3" Width="185" BorderBrush="#95A5A6">
+                            <TextBlock 
+                                    Text="{Binding IpAddress}"
+                                    HorizontalAlignment="Center" 
+                                    FontWeight="Bold" 
+                                    FontSize="20" 
+                                    FontFamily="Arial"
+                                    Margin="0,5,0,5"
+                                    Foreground="Black"/>
+                        </Border>
+
+                        <StackPanel Grid.Row="1">
+                            <Button x:Name="WifiConnectButton" Content="Reconnects" Click="WifiConnect_Click" Style="{StaticResource RightSideCurvedButtonStyle}"/>
+                        </StackPanel>
+                    </Grid>
+                </Border>
+
+                <!-- Match settings side region -->
+                <Border Grid.Row="2" Grid.Column="1" CornerRadius="3" Margin="5" BorderBrush="#EAD8B1" BorderThickness="3" Background="#394867">
+                    <Grid Grid.Row="1">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+
+                        <TextBlock 
+                            Text="MATCH SETTINGS"
+                            HorizontalAlignment="Center" 
+                            FontWeight="Bold" 
+                            FontSize="20" 
+                            FontStyle="Italic"
+                            FontFamily="Arial"
+                            Margin="0,15,0,15"
+                            Foreground="#EAD8B1"/>
+
+                        <StackPanel Grid.Row="1">
+                            <Button x:Name="StartMatchButton" 
+                                    Content="Start Match" 
+                                    Click="StartMatch_Click" 
+                                    Style="{StaticResource RightSideCurvedButtonStyle}"
+                                    Visibility="{Binding StartMatchVisibility}"/>
+                            <Button x:Name="EndMatchButton" 
+                                    Content="End Match" 
+                                    VerticalAlignment="Bottom"
+                                    Click="EndMatch_Click" 
+                                    Style="{StaticResource RightSideCurvedButtonStyle}"
+                                    Visibility="{Binding EndMatchVisibility}"/>
+                        </StackPanel>
+
+                        <Border Grid.Row="2" BorderBrush="#EAD8B1" CornerRadius="9" BorderThickness="0, 3, 0, 0">
+                            <TextBlock 
+                                Text="{Binding Match.Stage, StringFormat='Current Stage: {0}'}"
+                                HorizontalAlignment="Center" 
+                                FontWeight="Bold" 
+                                FontSize="15" 
+                                FontStyle="Italic"
+                                FontFamily="Arial"
+                                Margin="0,15,0,15"
+                                Foreground="#EAD8B1"/>
+                        </Border>
+                    </Grid>
+                </Border>
+
+                <!-- Round settings side region -->
+                <Border Grid.Row="3" Grid.Column="1" CornerRadius="3" Margin="5" BorderBrush="#EAD8B1" BorderThickness="3" Background="#394867">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+
+                        <TextBlock 
+                            Text="ROUND SETTINGS"
+                            HorizontalAlignment="Center" 
+                            FontWeight="Bold" 
+                            FontSize="20" 
+                            FontStyle="Italic"
+                            FontFamily="Arial"
+                            Margin="0,15,0,15"
+                            Foreground="#EAD8B1"/>
+
+                        <StackPanel Grid.Row="1">
+                            <Button x:Name="StartRoundButton" 
+                                    Content="Start Round" 
+                                    Click="StartRound_Click" 
+                                    Style="{StaticResource RightSideCurvedButtonStyle}"
+                                    Visibility="{Binding StartRoundVisibility}"/>
+                            <Button x:Name="BattlePhaseButton" 
+                                    Content="Battle phase" 
+                                    Click="BattlePhase_Click" 
+                                    Style="{StaticResource RightSideCurvedButtonStyle}"
+                                    Visibility="{Binding BattlePhaseVisibility}"/>
+                            <Button x:Name="EndRoundButton" 
+                                    Content="End Round" 
+                                    Click="EndRound_Click" 
+                                    Style="{StaticResource RightSideCurvedButtonStyle}"
+                                    Visibility="{Binding EndRoundVisibility}"/>
+                            <Button x:Name="PauseRoundButton" 
+                                    Content="Pause Round" 
+                                    Click="PauseRound_Click" 
+                                    Style="{StaticResource RightSideCurvedButtonStyle}"
+                                    Visibility="{Binding PauseRoundVisibility}"/>
+                            <Button x:Name="ResumeRoundButton" 
+                                    Content="Resume Round" 
+                                    Click="ResumeRound_Click" 
+                                    Style="{StaticResource RightSideCurvedButtonStyle}"
+                                    Visibility="{Binding ResumeRoundVisibility}"/>
+                        </StackPanel>
+
+                        <Border Grid.Row="2" BorderBrush="#EAD8B1" CornerRadius="9" BorderThickness="0, 3, 0, 0">
+                            <TextBlock 
+                                Text="{Binding CurrentRound.Stage, StringFormat='Current Stage: {0}'}"
+                                HorizontalAlignment="Center" 
+                                FontWeight="Bold" 
+                                FontSize="15" 
+                                FontStyle="Italic"
+                                FontFamily="Arial"
+                                Margin="0,15,0,15"
+                                Foreground="#EAD8B1"/>
+                        </Border>
+                    </Grid>
+                </Border>
+            </Grid>
+        </Border>
+    </Grid>
+</Window>
