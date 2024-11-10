@@ -1,11 +1,21 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
+		<!-- Project profile -->
 		<OutputType>WinExe</OutputType>
 		<TargetFramework>net8.0-windows</TargetFramework>
 		<Nullable>enable</Nullable>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<UseWPF>true</UseWPF>
+		
+		<!-- Publish profile -->
+		<PublishSingleFile>true</PublishSingleFile>
+		<!-- Creates a single .exe file -->
+		<RuntimeIdentifier>win-x64</RuntimeIdentifier>
+		<!-- Target Windows x64 runtime -->
+		<SelfContained>true</SelfContained>
+		<!-- Optional: Reduce file size by trimming -->
+		<PublishReadyToRun>true</PublishReadyToRun>
 	</PropertyGroup>
 
 	<ItemGroup>

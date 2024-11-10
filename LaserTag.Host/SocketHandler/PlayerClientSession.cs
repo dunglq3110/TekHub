@@ -29,7 +29,7 @@ namespace TekHub.Host.Logic
         {
             var frame = JsonConvert.DeserializeObject<HostFrameData<object>>(e.Data);
             if (frame == null) return;
-
+            #region handle handle message
             try
             {
                 switch (frame.ActionCode)
@@ -81,6 +81,7 @@ namespace TekHub.Host.Logic
             {
                 Console.WriteLine($"Error handling message: {ex.Message}");
             }
+            #endregion
         }
 
         protected override void OnClose(CloseEventArgs e)

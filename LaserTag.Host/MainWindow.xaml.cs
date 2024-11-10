@@ -28,6 +28,11 @@ namespace TekHub.Host
             GameManager.Instance.StartWebSocketServer();
         }
 
+        private void SettingButton_Click(object sender, RoutedEventArgs e)
+        {
+            GameManager.Instance.StartWebSocketServer();
+        }
+
         private void MatchButton_Click(object sender, RoutedEventArgs e)
         {
             MainFrame.Navigate(matchPage);

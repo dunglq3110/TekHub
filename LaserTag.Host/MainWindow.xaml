@@ -54,15 +54,9 @@
 
                 <!-- IP side region -->
                 <Border Grid.Row="0" Grid.Column="1" CornerRadius="3" Margin="5" BorderBrush="#EAD8B1" BorderThickness="3" Background="#394867">
-                    <TextBlock 
-                        Text="Setting Btn Here"
-                        HorizontalAlignment="Center" 
-                        VerticalAlignment="Center"
-                        FontWeight="Bold" 
-                        FontSize="20" 
-                        FontFamily="Arial"
-                        Margin="0,5,0,5"
-                        Foreground="#EAD8B1"/>
+
+                    <Button x:Name="SettingButton" Content="Reconnects" Click="SettingButton_Click" Style="{StaticResource RightSideCurvedButtonStyle}"/>
+
                 </Border>
 
                 <!-- IP side region -->
