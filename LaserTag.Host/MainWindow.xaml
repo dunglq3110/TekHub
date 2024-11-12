@@ -55,7 +55,7 @@
                 <!-- IP side region -->
                 <Border Grid.Row="0" Grid.Column="1" CornerRadius="3" Margin="5" BorderBrush="#EAD8B1" BorderThickness="3" Background="#394867">
 
-                    <Button x:Name="SettingButton" Content="Reconnects" Click="SettingButton_Click" Style="{StaticResource RightSideCurvedButtonStyle}"/>
+                    <Button x:Name="SettingButton" Content="Game Setting" Click="SettingButton_Click" Style="{StaticResource RightSideCurvedButtonStyle}"/>
 
                 </Border>
 

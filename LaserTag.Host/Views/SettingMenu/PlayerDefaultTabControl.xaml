@@ -3,10 +3,66 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:TekHub.Host.Views.SettingMenu"
+             xmlns:local="clr-namespace:TekHub.Host.Views.SettingMenu" 
+             xmlns:logic="clr-namespace:TekHub.Host.Logic" 
+             xmlns:viewModel="clr-namespace:TekHub.Host.ViewModel" 
+             d:DataContext="{d:DesignInstance Type=viewModel:PlayerDefaultTabViewModel}"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-            
+        <ScrollViewer>
+            <StackPanel Margin="10">
+                <!-- Selection ComboBox -->
+                <ComboBox x:Name="FilterComboBox"
+                          SelectedIndex="0"
+                          HorizontalAlignment="Left"
+                          Width="120"
+                          Margin="0,0,0,10"
+                          SelectionChanged="FilterComboBox_SelectionChanged">
+                    <ComboBoxItem Content="Gun" IsSelected="True" />
+                    <ComboBoxItem Content="Vest" />
+                </ComboBox>
+
+                <!-- DataGrid for displaying and editing attributes -->
+                <Border Background="#2C3E50" CornerRadius="5" BorderBrush="#405D7E" BorderThickness="1">
+                    <DataGrid x:Name="AttributesDataGrid"
+                              ItemsSource="{Binding EditableConfigs}"
+                              AutoGenerateColumns="False"
+                              HeadersVisibility="Column"
+                              Margin="10"
+                              Background="#34495E"
+                              RowBackground="#34495E"
+                              AlternatingRowBackground="#2C3E50"
+                              BorderBrush="#405D7E"
+                              BorderThickness="1">
+                        <DataGrid.Columns>
+                            <!-- Attribute Name Column -->
+                            <DataGridTextColumn Header="Attribute Name"
+                                                Binding="{Binding Name}"
+                                                IsReadOnly="True"
+                                                Width="*"
+                                                Foreground="White" />
+
+                            <!-- Value Column -->
+                            <DataGridTextColumn Header="Value"
+                                                Binding="{Binding Value1, Mode=TwoWay}"
+                                                Width="*"
+                                                Foreground="White" />
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Border>
+
+                <!-- Buttons for Save and Cancel actions -->
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,10,0,0">
+                    <Button Content="Save"
+                            Width="75"
+                            Margin="0,0,10,0"
+                            Click="SaveButton_Click" />
+                    <Button Content="Cancel"
+                            Width="75"
+                            Click="CancelButton_Click" />
+                </StackPanel>
+            </StackPanel>
+        </ScrollViewer>
     </Grid>
 </UserControl>

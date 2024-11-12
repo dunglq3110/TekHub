@@ -178,6 +178,9 @@ namespace TekHub.Host.Logic
         private ObservableCollection<Config> defaultPlayerAttribute = [];
 
         [ObservableProperty]
+        private ObservableCollection<Config> filteredAttributes = [];
+
+        [ObservableProperty]
         private ObservableCollection<GameAttribute> gameAttributes = [];
 
         [ObservableProperty]
@@ -297,7 +300,7 @@ namespace TekHub.Host.Logic
             {
                 var gunAttributes = new Dictionary<string, int>();
                 var vestAttributes = new Dictionary<string, int>();
-
+                
                 // Populate the dictionaries based on IsGun property
                 foreach (var attribute in player.PlayerAttributes)
                 {
@@ -744,9 +747,8 @@ namespace TekHub.Host.Logic
         #region Utils
         public void Test()
         {
-
             NotifyAllPlayerInfo("Test notification!!!");
-
+            var test = DefaultPlayerAttribute;
             var a = 1;
         }
 
@@ -759,15 +761,47 @@ namespace TekHub.Host.Logic
             // Step 1: Load the Config data (simulated from the seeded database)
             var configData = new List<Config>
             {
-                //Default player attributes
-                new Config { Id = 1, Name = "Default Player Damage", CodeName = "damage_value", Value1 = "100" },
-                new Config { Id = 2, Name = "Default Player Max Bullet", CodeName = "bullet_max", Value1 = "30" },
-                new Config { Id = 3, Name = "Player Fire Level", CodeName = "fire_level", Value1 = "0" },
-                new Config { Id = 4, Name = "Max Health", CodeName = "health_max", Value1 = "10000" },
-                new Config { Id = 5, Name = "Armor", CodeName = "armor_value", Value1 = "50" },
-                new Config { Id = 6, Name = "Initial money", CodeName = "money_init", Value1 = "100000" },
+                // Existing Configs with specific values and correct Value2 based on IsGun
+                new Config { Id = 1, Name = "Default Player Damage", CodeName = "damage_value", Value1 = "100", Value2 = "1" },
+                new Config { Id = 2, Name = "Default Player Max Bullet", CodeName = "bullet_max", Value1 = "30", Value2 = "1" },
+                new Config { Id = 3, Name = "Player Fire Level", CodeName = "fire_level", Value1 = "0", Value2 = "1" },
+                new Config { Id = 4, Name = "Max Health", CodeName = "health_max", Value1 = "10000", Value2 = "0" },
+                new Config { Id = 5, Name = "Armor", CodeName = "armor_value", Value1 = "50", Value2 = "0" },
 
+                // Remaining GameAttribute Codenames with default values and appropriate Value2
+                new Config { Id = 6, Name = "Heal Value", CodeName = "healing_value", Value1 = "0", Value2 = "1" },
+                new Config { Id = 7, Name = "Max SSketch Bullet", CodeName = "ssketch_bullet_max", Value1 = "0", Value2 = "1" },
+                new Config { Id = 8, Name = "Bullet Reload Time", CodeName = "bullet_reload_time", Value1 = "0", Value2 = "1" },
+                new Config { Id = 9, Name = "SSketch Bullet Reload Time", CodeName = "ssketch_bullet_reload_time", Value1 = "0", Value2 = "1" },
+                new Config { Id = 10, Name = "Life Steal Value", CodeName = "life_steal_value", Value1 = "0", Value2 = "1" },
+                new Config { Id = 11, Name = "Has True Damage", CodeName = "has_true_damage", Value1 = "0", Value2 = "1" },
+                new Config { Id = 12, Name = "Fire Rate", CodeName = "fire_rate", Value1 = "0", Value2 = "1" },
+                new Config { Id = 13, Name = "Fire Duration", CodeName = "fire_duration", Value1 = "0", Value2 = "1" },
+                new Config { Id = 14, Name = "Fire Value", CodeName = "fire_value", Value1 = "0", Value2 = "1" },
+                new Config { Id = 15, Name = "Fire Has True Damage", CodeName = "fire_has_true_damage", Value1 = "0", Value2 = "1" },
+                new Config { Id = 16, Name = "Poison Rate", CodeName = "poison_rate", Value1 = "0", Value2 = "1" },
+                new Config { Id = 17, Name = "Poison Level", CodeName = "poison_level", Value1 = "0", Value2 = "1" },
+                new Config { Id = 18, Name = "Poison Duration", CodeName = "poison_duration", Value1 = "0", Value2 = "1" },
+                new Config { Id = 19, Name = "Poison Value", CodeName = "poison_value", Value1 = "0", Value2 = "1" },
+                new Config { Id = 20, Name = "Deheal Level", CodeName = "deheal_level", Value1 = "0", Value2 = "1" },
+                new Config { Id = 21, Name = "Deheal Duration", CodeName = "deheal_duration", Value1 = "0", Value2 = "1" },
+                new Config { Id = 22, Name = "Deheal Heal Reduction", CodeName = "deheal_heal_reduction", Value1 = "0", Value2 = "1" },
+                new Config { Id = 23, Name = "Deheal Block Regen", CodeName = "deheal_block_regen", Value1 = "0", Value2 = "1" },
+                new Config { Id = 24, Name = "Silence Rate", CodeName = "silence_rate", Value1 = "0", Value2 = "1" },
+                new Config { Id = 25, Name = "Silence Level", CodeName = "silence_level", Value1 = "0", Value2 = "1" },
+                new Config { Id = 26, Name = "Silence Duration", CodeName = "silence_duration", Value1 = "0", Value2 = "1" },
+                new Config { Id = 27, Name = "Silence Armor Decrease", CodeName = "silence_armor_decrease", Value1 = "0", Value2 = "1" },
+                new Config { Id = 28, Name = "Max Armor", CodeName = "armor_max", Value1 = "0", Value2 = "0" },
+                new Config { Id = 29, Name = "Armor Plus", CodeName = "armor_plus", Value1 = "0", Value2 = "0" },
+                new Config { Id = 30, Name = "Armor Minus", CodeName = "armor_minus", Value1 = "0", Value2 = "0" },
+                new Config { Id = 31, Name = "Extra Damage Receive", CodeName = "extra_damage_receive", Value1 = "0", Value2 = "0" },
+                new Config { Id = 32, Name = "Base Damage Vulnerability", CodeName = "base_damage_vul", Value1 = "0", Value2 = "0" },
+                new Config { Id = 33, Name = "Base Damage Resistance", CodeName = "base_damage_res", Value1 = "0", Value2 = "0" },
+                new Config { Id = 34, Name = "Bonus Damage Vulnerability", CodeName = "bonus_damage_vul", Value1 = "0", Value2 = "0" },
+                new Config { Id = 35, Name = "Bonus Damage Resistance", CodeName = "bonus_damage_res", Value1 = "0", Value2 = "0" }
             };
+
+
 
             // Add to the existing ObservableCollection
             foreach (var config in configData)
@@ -906,8 +940,10 @@ namespace TekHub.Host.Logic
         {
             var configs = new List<Config>
             {
-                new Config { Id = 7, Name = "Rounds per match", CodeName = "round_per_match", Value1 = "3" },
-                new Config { Id = 8, Name = "Time per round", CodeName = "time_round", Value1 = "10" },
+                               
+                new Config { Id = 50, Name = "Initial money", CodeName = "money_init", Value1 = "100000" },
+                new Config { Id = 51, Name = "Rounds per match", CodeName = "round_per_match", Value1 = "3" },
+                new Config { Id = 52, Name = "Time per round", CodeName = "time_round", Value1 = "10" },
             };
 
             // Add to the existing ObservableCollection
@@ -916,7 +952,6 @@ namespace TekHub.Host.Logic
                 GameConfigs.Add(config);
             }
         }
-
         public void InitSamplePlayer()
         {
             Player player = new Player();
@@ -929,8 +964,6 @@ namespace TekHub.Host.Logic
             AllPlayers.Add(player);
 
         }
-
-
         #endregion
     }
 }

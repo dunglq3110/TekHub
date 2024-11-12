@@ -3,6 +3,9 @@ using TekHub.Host.Views;
 using System.Windows;
 using System.Windows.Input;
 using System.Windows.Media;
+using TekHub.Host.Models;
+using TekHub.Host.Views.PlayerDetail;
+using TekHub.Host.Views.SettingMenu;
 
 namespace TekHub.Host
 {
@@ -30,7 +33,23 @@ namespace TekHub.Host
 
         private void SettingButton_Click(object sender, RoutedEventArgs e)
         {
-            GameManager.Instance.StartWebSocketServer();
+            var popup = new Window
+            {
+                Title = $"Game Setting",
+                Width = 620,
+                Height = 600,
+                WindowStartupLocation = WindowStartupLocation.CenterOwner,
+                Owner = Window.GetWindow(this),
+                ResizeMode = ResizeMode.NoResize,
+                Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FF333333"))
+            };
+
+            // Create and set the player detail control
+            var settingPopup = new SettingMenuPopup();
+            popup.Content = settingPopup;
+
+            // Show the popup
+            popup.ShowDialog();
         }
 
         private void MatchButton_Click(object sender, RoutedEventArgs e)
