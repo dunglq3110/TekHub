@@ -1,18 +1,10 @@
-﻿using TekHub.Host.Dtos;
-using TekHub.Host.Extensions;
+﻿using Newtonsoft.Json;
+using TekHub.Host.Dtos;
 using TekHub.Host.Frame;
 using TekHub.Host.Models;
-using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using TekHub.Host.SocketHandler;
 using WebSocketSharp;
 using WebSocketSharp.Server;
-using System.Windows;
-using TekHub.Host.Helper;
-using TekHub.Host.SocketHandler;
 namespace TekHub.Host.Logic
 {
     public class PlayerClientSession : WebSocketBehavior
@@ -95,6 +87,7 @@ namespace TekHub.Host.Logic
         {
             Send(data);
         }
+
         public void SendData(HostActionCode actionCode, MessageType messageType, string message = "", object data = null)
         {
             var response = new HostFrameDataBuilder<object>()
