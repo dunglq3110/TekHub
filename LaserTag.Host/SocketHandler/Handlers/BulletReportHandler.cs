@@ -26,9 +26,10 @@ namespace TekHub.Host.SocketHandler.Handlers
                 if (player == null) return;
                 player.CurrentBullet = bulletReport.normalBullets;
                 player.CurrentSSketchBullet = bulletReport.ssketchBullets;
+                var random = new Random();
                 ShootLog shootLog = new ShootLog
                 {
-                    Id = gmInstance.ShootLogs.Count(),
+                    Id = random.Next(1, int.MaxValue),
                     Shooter = player,
                     Round = gmInstance.CurrentRound,
                     Time = DateTime.Now,

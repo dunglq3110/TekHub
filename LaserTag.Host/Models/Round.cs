@@ -23,6 +23,8 @@ namespace TekHub.Host.Models
 
         public Round()
         {
+            var random = new Random();
+            Id = random.Next(1, int.MaxValue);
             Stage = RoundStage.Lobbying;
         }
     }

@@ -27,6 +27,8 @@ namespace TekHub.Host.Models
 
         public Match()
         {
+            var random = new Random();
+            Id = random.Next(1, int.MaxValue);
             Stage = MatchStage.Lobbying;
             Rounds = new ObservableCollection<Round>();
         }
